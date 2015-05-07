@@ -13,11 +13,9 @@ data Recipe = Recipe String [Ingredient] Int deriving (Show, Eq)
 
 
 class Macros a where
-  fats :: a -> Gram
-  carbs :: a -> Gram
-  protein :: a -> Gram
-
-  (//) :: a -> Float -> a
+  fats, carbs, protein :: a -> Gram
+  (.*), (./) :: a -> Float -> a
+  (./) m n = m .* (1/n)
 
 
 instance Macros MacroNutrients where
@@ -25,15 +23,15 @@ instance Macros MacroNutrients where
   carbs (MacroNutrients _ (Carbohydrate g) _) = g
   protein (MacroNutrients _ _ (Protein g)) = g
 
-  (//) m n =
-    MacroNutrients (Fat (fats m / n))
-    (Carbohydrate (carbs m / n))
-    (Protein (protein m / n))
+  (.*) m n =
+    MacroNutrients (Fat (fats m * n))
+    (Carbohydrate (carbs m * n))
+    (Protein (protein m * n))
 
-instance Macros Ingredient where
-  fats (Ingredient _ m _) = fats m
-  carbs (Ingredient _ m _) = carbs m
-  protein (Ingredient _ m _) = protein m
-
-  (//) (Ingredient name macros amount) n =
-    Ingredient name (macros // n) (Gram 0) -- FIX
+-- instance Macros Ingredient where
+--   fats (Ingredient _ m _) = fats m
+--   carbs (Ingredient _ m _) = carbs m
+--   protein (Ingredient _ m _) = protein m
+--
+--   (//) (Ingredient name macros amount) n =
+--     Ingredient name (macros // n) (Gram 0) -- FIX
