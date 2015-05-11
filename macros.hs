@@ -4,6 +4,7 @@ module Macros where
 
 data Unit = Gram Float |
             Ounce Float |
+            Pound Float |
             FluidOunce Float |
             Cup Float |
             TableSpoon Float|
@@ -34,6 +35,7 @@ instance Ops MacroNutrients where
 instance Ops Unit where
    (.*) (Gram m) n = Gram (m*n)
    (.*) (Ounce m) n = Ounce (m*n)
+   (.*) (Pound m) n = Pound (m*n)
    (.*) (FluidOunce m) n = FluidOunce (m*n)
    (.*) (Cup m) n = Cup (m*n)
    (.*) (TableSpoon m) n = TableSpoon (m*n)
@@ -68,3 +70,6 @@ instance Macros Recipe where
 
 macro :: Float -> Float -> Float -> MacroNutrients
 macro f c p = MacroNutrients (Fat f) (Carbohydrate c) (Protein p)
+
+ingredient :: String -> Float -> Float -> Float -> Unit -> Ingredient
+ingredient n f c p u = Ingredient n (macro f c p) u
