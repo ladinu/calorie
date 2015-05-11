@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleInstances #-}
+
 module Main where
 
 data Unit = Gram Float | Ounce Float | FluidOunce Float deriving (Show, Eq)
@@ -18,14 +20,6 @@ class Ops a where
   (./) m 0 = error "Cannot divide by zero"
   (./) m n = m .* (1/n)
 
-class Macros a where
-  fats, carbs, protein :: a -> Gram
-
-instance Macros MacroNutrients where
-  fats (MacroNutrients (Fat g) _ _) = g
-  carbs (MacroNutrients _ (Carbohydrate g) _) = g
-  protein (MacroNutrients _ _ (Protein g)) = g
-
 instance Ops MacroNutrients where
   (.*) m n =
     MacroNutrients (Fat (fats m * n))
@@ -37,11 +31,32 @@ instance Ops Unit where
    (.*) (Ounce m) n = Ounce (m*n)
    (.*) (FluidOunce m) n = FluidOunce (m*n)
 
+instance Ops Ingredient where
+  (.*) (Ingredient name macros amount) n =
+    Ingredient name (macros .* n) (amount .* n)
+
+class Macros a where
+  fats, carbs, protein :: a -> Gram
+
+instance Macros MacroNutrients where
+  fats (MacroNutrients (Fat g) _ _) = g
+  carbs (MacroNutrients _ (Carbohydrate g) _) = g
+  protein (MacroNutrients _ _ (Protein g)) = g
+
 instance Macros Ingredient where
   fats (Ingredient _ m _) = fats m
   carbs (Ingredient _ m _) = carbs m
   protein (Ingredient _ m _) = protein m
 
-instance Ops Ingredient where
-  (.*) (Ingredient name macros amount) n =
-    Ingredient name (macros .* n) (amount .* n)
+instance Macros [Ingredient] where
+  fats = sum . map (fats)
+  carbs = sum . map (carbs)
+  protein = sum . map (protein)
+
+instance Macros Recipe where
+  fats (Recipe _ is servings) = (fats is) / fromIntegral servings
+  carbs (Recipe _ is servings) = (carbs is) / fromIntegral servings
+  protein (Recipe _ is servings) = (protein is) / fromIntegral servings
+
+macro :: Float -> Float -> Float -> MacroNutrients
+macro f c p = MacroNutrients (Fat f) (Carbohydrate c) (Protein p)
