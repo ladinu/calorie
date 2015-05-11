@@ -2,7 +2,12 @@
 
 module Macros where
 
-data Unit = Gram Float | Ounce Float | FluidOunce Float deriving (Show, Eq)
+data Unit = Gram Float |
+            Ounce Float |
+            FluidOunce Float |
+            Cup Float |
+            TableSpoon Float|
+            TeaSpoon Float deriving (Show, Eq)
 type Gram = Float
 
 data Fat = Fat Gram deriving (Show, Eq)
@@ -30,6 +35,9 @@ instance Ops Unit where
    (.*) (Gram m) n = Gram (m*n)
    (.*) (Ounce m) n = Ounce (m*n)
    (.*) (FluidOunce m) n = FluidOunce (m*n)
+   (.*) (Cup m) n = Cup (m*n)
+   (.*) (TableSpoon m) n = TableSpoon (m*n)
+   (.*) (TeaSpoon m) n = TeaSpoon (m*n)
 
 instance Ops Ingredient where
   (.*) (Ingredient name macros amount) n =
