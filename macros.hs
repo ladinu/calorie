@@ -1,6 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 
-module Main where
+module Macros where
 
 data Unit = Gram Float | Ounce Float | FluidOunce Float deriving (Show, Eq)
 type Gram = Float
