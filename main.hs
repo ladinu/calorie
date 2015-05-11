@@ -9,13 +9,13 @@ data Protein = Protein Gram deriving (Show, Eq)
 
 data MacroNutrients = MacroNutrients Fat Carbohydrate Protein deriving (Show, Eq)
 
-
 data Ingredient = Ingredient String MacroNutrients Unit deriving (Show, Eq)
 data Recipe = Recipe String [Ingredient] Int deriving (Show, Eq)
 
 
 class Ops a where
   (.*), (./) :: a -> Float -> a
+  (./) m 0 = error "Cannot divide by zero"
   (./) m n = m .* (1/n)
 
 class Macros a where
