@@ -44,4 +44,4 @@ instance Macros Ingredient where
 
 instance Ops Ingredient where
   (.*) (Ingredient name macros amount) n =
-    Ingredient name (macros .* n) (amount .* n) -- FIX
+    Ingredient name (macros .* n) (amount .* n)
