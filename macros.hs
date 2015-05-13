@@ -28,9 +28,9 @@ class Ops a where
 
 instance Ops MacroNutrients where
   (.*) m n =
-    MacroNutrients (Fat (fats m * n))
-    (Carbohydrate (carbs m * n))
-    (Protein (protein m * n))
+    MacroNutrients (Fat (fats' m * n))
+    (Carbohydrate (carbs' m * n))
+    (Protein (protein' m * n))
 
 instance Ops Unit where
    (.*) (Gram m) n = Gram (m*n)
@@ -46,27 +46,41 @@ instance Ops Ingredient where
     Ingredient name (macros .* n) (amount .* n)
 
 class Macros a where
-  fats, carbs, protein :: a -> Gram
+  fats', carbs', protein' :: a -> Gram
 
 instance Macros MacroNutrients where
-  fats (MacroNutrients (Fat g) _ _) = g
-  carbs (MacroNutrients _ (Carbohydrate g) _) = g
-  protein (MacroNutrients _ _ (Protein g)) = g
+  fats' (MacroNutrients (Fat g) _ _) = g
+  carbs' (MacroNutrients _ (Carbohydrate g) _) = g
+  protein' (MacroNutrients _ _ (Protein g)) = g
 
 instance Macros Ingredient where
-  fats (Ingredient _ m _) = fats m
-  carbs (Ingredient _ m _) = carbs m
-  protein (Ingredient _ m _) = protein m
+  fats' (Ingredient _ m _) = fats' m
+  carbs' (Ingredient _ m _) = carbs' m
+  protein' (Ingredient _ m _) = protein' m
 
 instance Macros [Ingredient] where
-  fats = sum . map (fats)
-  carbs = sum . map (carbs)
-  protein = sum . map (protein)
+  fats' = sum . map (fats')
+  carbs' = sum . map (carbs')
+  protein' = sum . map (protein')
 
 instance Macros Recipe where
-  fats (Recipe _ is servings) = (fats is) / fromIntegral servings
-  carbs (Recipe _ is servings) = (carbs is) / fromIntegral servings
-  protein (Recipe _ is servings) = (protein is) / fromIntegral servings
+  fats' (Recipe _ is servings) = (fats' is) / fromIntegral servings
+  carbs' (Recipe _ is servings) = (carbs' is) / fromIntegral servings
+  protein' (Recipe _ is servings) = (protein' is) / fromIntegral servings
+
+instance Macros [Recipe] where
+  fats' = sum . map (fats')
+  carbs' = sum . map (carbs')
+  protein' = sum . map (protein')
+
+fats :: (Macros a, Integral b) => a -> b
+fats = ceiling . fats'
+
+carbs :: (Macros a, Integral b) => a -> b
+carbs = ceiling . carbs'
+
+protein :: (Macros a, Integral b) => a -> b
+protein = ceiling . protein'
 
 macro :: Float -> Float -> Float -> MacroNutrients
 macro f c p = MacroNutrients (Fat f) (Carbohydrate c) (Protein p)
