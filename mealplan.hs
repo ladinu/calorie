@@ -1,12 +1,12 @@
 import Macros
 
 -- All the ingredients
-yogurt = ingredient "Fage Greek Yogurt" 0 9 23 (Gram 227)
-eggwhites = ingredient "Egg whites" 0 0 20 (Gram 160)
-ricemilk = ingredient "Rice Milk" 2.5 23 1 (Cup 1)
+yogurt        = ingredient "Fage Greek Yogurt" 0 9 23 (Gram 227)
+eggwhites     = ingredient "Egg whites" 0 0 20 (Gram 160)
+ricemilk      = ingredient "Rice Milk" 2.5 23 1 (Cup 1)
 proteinpowder = ingredient "Whey protein" 1 3 24 (Gram 30)
-sugar = ingredient "White Sugar" 0 16 0 (Gram 16)
-rice = ingredient "Medium Grain White Rice, cooked" 0.2 28.6 2.4 (Gram 100)
+sugar         = ingredient "White Sugar" 0 16 0 (Gram 16)
+rice          = ingredient "Medium Grain White Rice, cooked" 0.2 28.6 2.4 (Gram 100)
 
 potato   = ingredient "Potato" 0.1 27 2.3 (Gram 150)
 mushroom = ingredient "Mushroom" 0 3 1 (Gram 85)
