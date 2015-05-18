@@ -21,6 +21,7 @@ onion    = ingredient "Onion" 0.1 17.2 1.6 (Gram 170)
 ginger   = ingredient "Ginger" 0.1 2.7 0.3 (Gram 15)
 starch   = ingredient "Corn Starch" 0 10 0 (Gram 10)
 onion'   = ingredient "Onion" 0 11.1 1 (Gram 110)
+broccoli = ingredient "Broccoli" 0.4 7 2.8 (Gram 100)
 broth    = ingredient "Chicken broth" 0 1 4 (Cup 1)
 paste    = ingredient "Tomato Paste" 0 7 1 (Gram 35)
 
@@ -29,7 +30,7 @@ chicken' = chicken .* 6.5
 rice'    = rice .* 6
 lunch    =
   Recipe "Chicken & Basil stir-fry and Rice"
-  [chicken', oil, garlic, pepper, onion, ginger, starch, rice']
+  [chicken', oil, garlic, pepper, onion', ginger, starch, broccoli, rice']
   6
 
 shake1 =
