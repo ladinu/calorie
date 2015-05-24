@@ -58,10 +58,11 @@ shake2 =
 yogurt' = yogurt ./ 2
 dessert =
   Recipe "Dessert"
-  [yogurt, sugar]
+  [yogurt', sugar]
   1
 
 intake = [lunch, shake1, chili, shake2, dessert]
-macroBreakdown bw =  [0.2*bw, bw, 1.2*bw]
+macroBreakdown = [fats intake, carbs intake, protein intake]
+macroBreakdownExpected bw =  [0.2*bw, bw, 1.2*bw]
 calorieIntake = sum $ map calories intake
 calorieIntakeExpected bw = sum [9*bw*0.2, 4*bw, 4*bw*1.2]
