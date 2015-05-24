@@ -21,6 +21,9 @@ data Ingredient = Ingredient String MacroNutrients Unit deriving (Show, Eq)
 data Recipe = Recipe String [Ingredient] Int deriving (Show, Eq)
 
 
+class Show' a where
+  show' :: a -> String
+
 class Ops a where
   (.*), (./) :: a -> Float -> a
   (./) m 0 = error "Cannot divide by zero"
@@ -41,9 +44,25 @@ instance Ops Unit where
    (.*) (TableSpoon m) n = TableSpoon (m*n)
    (.*) (TeaSpoon m) n = TeaSpoon (m*n)
 
+instance Show' Unit where
+  show' (Gram m) = show m ++ "g"
+  show' (Ounce m) = show m ++ " oz"
+  show' (Pound m) = show m ++ " lb"
+  show' (FluidOunce m) = show m ++ " flOz"
+  show' (Cup m) = show m ++ " Cup"
+  show' (TableSpoon m) = show m ++ " Tbsp"
+  show' (TeaSpoon m) = show m ++ " Tsp"
+
 instance Ops Ingredient where
   (.*) (Ingredient name macros amount) n =
     Ingredient name (macros .* n) (amount .* n)
+
+instance Show' Ingredient where
+  show' (Ingredient name _ u) = name ++ " " ++ show' u
+
+instance Show' [Ingredient] where
+  show' [] = ""
+  show'(x:xs) = show' x ++ "\n" ++ show' xs
 
 class Macros a where
   fats', carbs', protein' :: a -> Gram
@@ -67,6 +86,11 @@ instance Macros Recipe where
   fats' (Recipe _ is servings) = (fats' is) / fromIntegral servings
   carbs' (Recipe _ is servings) = (carbs' is) / fromIntegral servings
   protein' (Recipe _ is servings) = (protein' is) / fromIntegral servings
+
+instance Show' Recipe where
+  show' (Recipe name ingredients servingSize) =
+    "------- " ++ name ++ " [" ++ show servingSize ++ "] -------\n"
+    ++ show' ingredients
 
 instance Macros [Recipe] where
   fats' = sum . map (fats')
