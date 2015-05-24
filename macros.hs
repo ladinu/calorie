@@ -73,6 +73,7 @@ instance Macros [Recipe] where
   carbs' = sum . map (carbs')
   protein' = sum . map (protein')
 
+
 fats :: (Macros a, Integral b) => a -> b
 fats = ceiling . fats'
 
@@ -81,6 +82,12 @@ carbs = ceiling . carbs'
 
 protein :: (Macros a, Integral b) => a -> b
 protein = ceiling . protein'
+
+tf :: (Real a, Fractional b) => a -> b
+tf = realToFrac
+
+calories :: (Macros a, Fractional b) => a -> b
+calories m = sum [tf (fats m) * 9, tf (carbs m) * 4, tf (protein m) * 4]
 
 macro :: Float -> Float -> Float -> MacroNutrients
 macro f c p = MacroNutrients (Fat f) (Carbohydrate c) (Protein p)

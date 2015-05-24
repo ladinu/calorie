@@ -21,7 +21,7 @@ onion    = ingredient "Onion" 0.1 17.2 1.6 (Gram 170)
 ginger   = ingredient "Ginger" 0.1 2.7 0.3 (Gram 15)
 starch   = ingredient "Corn Starch" 0 10 0 (Gram 10)
 onion'   = ingredient "Onion" 0 11.1 1 (Gram 110)
-broccoli = ingredient "Broccoli" 0.4 7 2.8 (Gram 100)
+broccoli = ingredient "Broccoli" 0.7 13.3 5.6 (Gram 200)
 broth    = ingredient "Chicken broth" 0 1 4 (Cup 1)
 paste    = ingredient "Tomato Paste" 0 7 1 (Gram 35)
 
@@ -58,7 +58,10 @@ shake2 =
 yogurt' = yogurt ./ 2
 dessert =
   Recipe "Dessert"
-  [yogurt', sugar]
+  [yogurt, sugar]
   1
 
 intake = [lunch, shake1, chili, shake2, dessert]
+macroBreakdown bw =  [0.2*bw, bw, 1.2*bw]
+calorieIntake = sum $ map calories intake
+calorieIntakeExpected bw = sum [9*bw*0.2, 4*bw, 4*bw*1.2]
