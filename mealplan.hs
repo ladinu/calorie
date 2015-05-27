@@ -25,7 +25,7 @@ broccoli = ingredient "Broccoli" 0.7 13.3 5.6 (Gram 200)
 broth    = ingredient "Chicken broth" 0 1 4 (Cup 1)
 paste    = ingredient "Tomato Paste" 0 6 2 (Gram 33)
 tacomix  = ingredient "Taco Mix" 0 3 0 (TeaSpoon 2) .* 3
-lettuce  = ingredient "Iceberg Lettuce" 0.1 1.5  (Gram 50)
+lettuce  = ingredient "Iceberg Lettuce" 0.1 1.5 0.5  (Gram 50)
 
 -- Recipies
 chicken' = chicken .* 6.5
