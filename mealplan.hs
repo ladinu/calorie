@@ -23,7 +23,9 @@ starch   = ingredient "Corn Starch" 0 10 0 (Gram 10)
 onion'   = ingredient "Onion" 0 11.1 1 (Gram 110)
 broccoli = ingredient "Broccoli" 0.7 13.3 5.6 (Gram 200)
 broth    = ingredient "Chicken broth" 0 1 4 (Cup 1)
-paste    = ingredient "Tomato Paste" 0 7 1 (Gram 35)
+paste    = ingredient "Tomato Paste" 0 6 2 (Gram 33)
+tacomix  = ingredient "Taco Mix" 0 3 0 (TeaSpoon 2) .* 3
+lettuce  = ingredient "Iceberg Lettuce" 0.1 1.5  (Gram 50)
 
 -- Recipies
 chicken' = chicken .* 6.5
@@ -41,13 +43,13 @@ shake1 =
 potato'   = potato .* 6
 mushroom' = mushroom .* 3
 garlic'   = garlic
-oil'      = oil ./ 6
+oil'      = oil ./ 2
 beans'    = beans .* 3.5
 tomato'   = tomato .* 3.5
 turkey'   = turkey .* 5
 chili     =
   Recipe "Chili and Potato"
-  [potato', mushroom', onion', garlic', oil', broth, beans', paste, tomato', turkey']
+  [rice', tacomix, mushroom', onion', garlic', oil', beans', paste, tomato', turkey']
   6
 
 shake2 =
