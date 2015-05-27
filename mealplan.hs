@@ -49,7 +49,7 @@ tomato'   = tomato .* 3.5
 turkey'   = turkey .* 5
 chili     =
   Recipe "Chili and Potato"
-  [rice', tacomix, mushroom', onion', garlic', oil', beans', paste, tomato', turkey']
+  [rice', lettuce, tacomix, mushroom', onion', garlic', oil', beans', paste, tomato', turkey']
   6
 
 shake2 =
