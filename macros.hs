@@ -107,6 +107,9 @@ carbs = ceiling . carbs'
 protein :: (Macros a, Integral b) => a -> b
 protein = ceiling . protein'
 
+macros :: (Macros a, Integral b) => a -> (b, b, b)
+macros a = (fats a, carbs a, protein a)
+
 tf :: (Real a, Fractional b) => a -> b
 tf = realToFrac
 
