@@ -24,7 +24,7 @@ onion'   = ingredient "Onion" 0 11.1 1 (Gram 110)
 broccoli = ingredient "Broccoli" 0.7 13.3 5.6 (Gram 200)
 broth    = ingredient "Chicken broth" 0 1 4 (Cup 1)
 paste    = ingredient "Tomato Paste" 0 6 2 (Gram 33)
-tacomix  = ingredient "Taco Mix" 0 3 0 (TeaSpoon 2) .* 3
+tacomix  = ingredient "Taco Mix" 0 3 0 (TeaSpoon 2) .* 6
 lettuce  = ingredient "Iceberg Lettuce" 0.1 1.5 0.5  (Gram 50)
 
 -- Recipies
@@ -63,8 +63,25 @@ dessert =
   [yogurt', sugar]
   1
 
-intake = [lunch, shake1, chili, shake2, dessert]
+rice''    = ingredient "White Rice" 2.4 295.8 26.4 (Cup 2)
+chicken'' = ingredient "Chicken Breast" 11.2 0 209.5 (Ounce 32)
+sauce = (ingredient "Enchilada Sauce" 0 4 0 (Cup 0.25)) .* 13
+refriedBeans = (ingredient "Refried beans" 0 16 6 (Cup 0.5)) .* 3.5
+corn = ingredient "Corn kernels" 0 18 0 (Ounce 21)
+cheese = (ingredient "Cheese" 9 1 7 (Gram 28)) .* 8
+
+casserole =
+ Recipe "Chicken Enchilada Rice Casserole"
+ [rice'', chicken'', sauce, refriedBeans, corn, cheese, beans, onion'] 6
+
+intake = [lunch, shake1, casserole, shake2, dessert]
 macroBreakdown = [fats intake, carbs intake, protein intake]
 macroBreakdownExpected bw =  [0.2*bw, bw, 1.2*bw]
 calorieIntake = sum $ map calories intake
 calorieIntakeExpected bw = sum [9*bw*0.2, 4*bw, 4*bw*1.2]
+
+toKG :: Double -> Double
+toKG = (*) 0.453592
+
+bmr :: Double -> Double -> Double
+bmr bw bf = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
