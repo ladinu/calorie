@@ -78,7 +78,11 @@ snack0 =
   Recipe "Almonds"
   [ingredient "Almonds" 10.1 3.9 4.3 (Gram 20)] 1
 
-intake = [lunch, shake1, casserole, shake2, dessert, snack0]
+snack1 =
+  Recipe "Apple 1 large"
+  [ingredient "Apple" 0.4 31 0.6 (Gram 223)] 1
+
+intake = [lunch, shake1, casserole, shake2, dessert, snack0, snack1]
 
 macroBreakdown = [fats intake, carbs intake, protein intake]
 macroBreakdownExpected bw =  [0.2*bw, bw, 1.2*bw]
