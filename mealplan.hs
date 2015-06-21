@@ -74,7 +74,12 @@ casserole =
  Recipe "Chicken Enchilada Rice Casserole"
  [rice'', chicken'', sauce, refriedBeans, corn, cheese, beans, onion'] 6
 
-intake = [lunch, shake1, casserole, shake2, dessert]
+snack0 =
+  Recipe "Almonds"
+  [ingredient "Almonds" 10.1 3.9 4.3 (Gram 20)] 1
+
+intake = [lunch, shake1, casserole, shake2, dessert, snack0]
+
 macroBreakdown = [fats intake, carbs intake, protein intake]
 macroBreakdownExpected bw =  [0.2*bw, bw, 1.2*bw]
 calorieIntake = sum $ map calories intake
