@@ -29,33 +29,11 @@ lettuce  = ingredient "Iceberg Lettuce" 0.1 1.5 0.5  (Gram 50)
 
 -- Recipies
 chicken' = chicken .* 6.5
-rice'    = rice .* 9
+rice'    = rice .* 6
 lunch    =
   Recipe "Chicken & Basil stir-fry and Rice"
-  [chicken', oil, garlic, pepper, onion', ginger, starch, broccoli, rice']
+  [chicken', oil, garlic, pepper, onion', starch, broccoli .* 2.5, rice']
   6
-
--- shake1 =
---   Recipe "Pre-Workout Shake"
---   [proteinpowder, ricemilk]
---   1
-
--- potato'   = potato .* 6
--- mushroom' = mushroom .* 3
--- garlic'   = garlic
--- oil'      = oil ./ 2
--- beans'    = beans .* 3.5
--- tomato'   = tomato .* 3.5
--- turkey'   = turkey .* 5
--- chili     =
---   Recipe "Chili and Potato"
---   [rice', lettuce, tacomix, mushroom', onion', garlic', oil', beans', paste, tomato', turkey']
---   6
-
--- shake2 =
---   Recipe "Post Workout shake"
---   [proteinpowder .* 2, ricemilk]
---   1
 
 shake =
   Recipe "Post Workout shake"
@@ -72,7 +50,7 @@ chard = ingredient "Swiss Chard (1lb)" 0.9 17 8.2 (Pound 1)
 shrimp' = ingredient "Shrimp" 11.8 6.2 138.2 (Pound 1.5)
 shrimp =
   Recipe "Shirmp and Chard"
-  [chard, onion, shrimp', oil .* 2, rice]
+  [chard, onion, shrimp', oil .* 2]
   6
 
 rice''    = ingredient "White Rice" 2.4 295.8 26.4 (Cup 2)
@@ -84,7 +62,7 @@ cheese = (ingredient "Cheese" 9 1 7 (Gram 28)) .* 8
 
 casserole =
  Recipe "Chicken Enchilada Rice Casserole"
- [rice'', chicken'', sauce, refriedBeans, corn, cheese, beans, onion'] 6
+ [rice'', chicken'', sauce, refriedBeans, corn, cheese, beans, onion', lettuce] 6
 
 snack0 =
   Recipe "Almonds"
@@ -94,7 +72,7 @@ snack1 =
   Recipe "Apple 1 large"
   [ingredient "Apple" 0.4 31 0.6 (Gram 223)] 1
 
-intake = [lunch, shake, casserole, dessert, snack0, snack1, shrimp]
+intake = [lunch, shake, casserole, shrimp]
 
 macroBreakdown = [fats intake, carbs intake, protein intake]
 macroBreakdownExpected bw =  [0.2*bw, bw, 1.2*bw]
