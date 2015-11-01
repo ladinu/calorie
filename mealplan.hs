@@ -72,6 +72,26 @@ snack1 =
   Recipe "Apple 1 large"
   [ingredient "Apple" 0.4 31 0.6 (Gram 223)] 1
 
+-- Sunday meals
+chickenSalad =
+  Recipe "Chicken Salad"
+  [ingredient "Chicken Breast" 5.6 0 104.7 (Pound 1), onion',
+   ingredient "Celery stalk (1)" 0 0 0 (Gram 0),
+   (ingredient "Mayonnaise" 10 0 0 (TableSpoon 1)) .* 3,
+   (ingredient "Fage Yogurt" 0 7 18 (Ounce 6)) ./ 3,
+   ingredient "Tarragon Leaves" 0 0 0 (Gram 0),
+   ingredient "Walnut Chooped" 19 4 4.45 (Cup (1/4))] 4
+
+chickenAndRice =
+  Recipe "Chicken and Rice"
+  [ ingredient "Chicken Breast (cubed)" 1.4 0 26.1 (Ounce 1),
+    (ingredient "Cream of Chicken soup" 6 9 2 (Cup (1/2))) .* 2.5,
+    ingredient "White rice" 1.2 150 13.2 (Cup 1),
+    ingredient "Onion (chopped)" 0 16.2 1.5 (Ounce 5.6),
+    (ingredient "Sharp Cheddar" 9 0 7 (Cup (1/4))) .* 4,
+    oil] 2
+
+--
 intake = [lunch, shake, casserole, shrimp]
 
 macroBreakdown = [fats intake, carbs intake, protein intake]
@@ -84,3 +104,5 @@ toKG = (*) 0.453592
 
 bmr :: Double -> Double -> Double
 bmr bw bf = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
+
+prnt a = putStr $ show' a
