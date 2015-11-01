@@ -89,8 +89,10 @@ chickenAndRice =
     ingredient "White rice" 1.2 150 13.2 (Cup 1),
     ingredient "Onion (chopped)" 0 16.2 1.5 (Ounce 5.6),
     (ingredient "Sharp Cheddar" 9 0 7 (Cup (1/4))) .* 4,
+    (ingredient "Veggies" 0 7 2 (Cup (3/4))) .* 4,
     oil] 2
 
+sundayIntake = [chickenAndRice, shake]
 --
 intake = [lunch, shake, casserole, shrimp]
 
