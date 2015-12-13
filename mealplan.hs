@@ -32,7 +32,7 @@ chicken' = chicken .* 6.5
 rice'    = rice .* 6
 lunch    =
   Recipe "Chicken & Basil stir-fry and Rice"
-  [chicken', oil, garlic, pepper, onion', starch, broccoli .* 2.5, rice']
+  [chicken', oil, garlic, pepper, onion', rice']
   6
 
 shake =
@@ -47,10 +47,11 @@ dessert =
   1
 
 chard = ingredient "Swiss Chard (1lb)" 0.9 17 8.2 (Pound 1)
+radicchio = ingredient "Radicchio" 1.1 20.3 6.5 (Pound 1)
 shrimp' = ingredient "Shrimp" 11.8 6.2 138.2 (Pound 1.5)
 shrimp =
   Recipe "Shirmp and Chard"
-  [chard, onion, shrimp', oil .* 2]
+  [radicchio, onion, shrimp', oil .* 2]
   6
 
 rice''    = ingredient "White Rice" 2.4 295.8 26.4 (Cup 2)
@@ -73,26 +74,40 @@ snack1 =
   [ingredient "Apple" 0.4 31 0.6 (Gram 223)] 1
 
 -- Sunday meals
-chickenSalad =
-  Recipe "Chicken Salad"
-  [ingredient "Chicken Breast" 5.6 0 104.7 (Pound 1), onion',
-   ingredient "Celery stalk (1)" 0 0 0 (Gram 0),
-   (ingredient "Mayonnaise" 10 0 0 (TableSpoon 1)) .* 3,
-   (ingredient "Fage Yogurt" 0 7 18 (Ounce 6)) ./ 3,
-   ingredient "Tarragon Leaves" 0 0 0 (Gram 0),
-   ingredient "Walnut Chooped" 19 4 4.45 (Cup (1/4))] 4
+-- chickenSalad =
+--   Recipe "Chicken Salad"
+--   [ingredient "Chicken Breast" 5.6 0 104.7 (Pound 1), onion',
+--    ingredient "Celery stalk (1)" 0 0 0 (Gram 0),
+--    (ingredient "Mayonnaise" 10 0 0 (TableSpoon 1)) .* 3,
+--    (ingredient "Fage Yogurt" 0 7 18 (Ounce 6)) ./ 3,
+--    ingredient "Tarragon Leaves" 0 0 0 (Gram 0),
+--    ingredient "Walnut Chooped" 19 4 4.45 (Cup (1/4))] 4
+
+
+
+wheyplus = ingredient "Whey+ Protein poweder" 0 1 22 (Gram 30)
+fageYogurt = ingredient "Fage plain yogurt (non fat)" 0 9 23 (Gram 227)
+shrededChicken = ingredient "Shredded poached chicken" 1.5 0 26 (Ounce 4)
+sweetPotato = ingredient "Sweet potato (raw)" 0.1 34.2 2.7 (Ounce 6)
+pb2 = ingredient "PB2" 1 6 5 (Gram 12)
+
+wheyShake = Recipe "Whey+" [wheyplus] 1
+
+pb2yogurt = Recipe "PB2 and Yogurt" [fageYogurt, pb2 .* 4] 1
 
 chickenAndRice =
   Recipe "Chicken and Rice"
-  [ ingredient "Chicken Breast (cubed)" 1.4 0 26.1 (Ounce 1),
+  [ ingredient "Chicken Breast (cubed)" 1.4 0 26.1 (Ounce 4),
     (ingredient "Cream of Chicken soup" 6 9 2 (Cup (1/2))) .* 2.5,
     ingredient "White rice" 1.2 150 13.2 (Cup 1),
     ingredient "Onion (chopped)" 0 16.2 1.5 (Ounce 5.6),
-    (ingredient "Sharp Cheddar" 9 0 7 (Cup (1/4))) .* 4,
     (ingredient "Veggies" 0 7 2 (Cup (3/4))) .* 4,
     oil] 2
 
-sundayIntake = [chickenAndRice, shake]
+sweetPotatoeAndChicken =
+  Recipe "Sweet potatoe and chicken" [sweetPotato, shrededChicken] 1
+
+sundayIntake = [chickenAndRice, sweetPotatoeAndChicken, wheyShake, pb2yogurt]
 --
 intake = [lunch, shake, casserole, shrimp]
 
