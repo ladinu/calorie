@@ -29,10 +29,9 @@ lettuce  = ingredient "Iceberg Lettuce" 0.1 1.5 0.5  (Gram 50)
 
 -- Recipies
 chicken' = chicken .* 6.5
-rice'    = rice .* 6
 lunch    =
   Recipe "Chicken & Basil stir-fry and Rice"
-  [chicken', oil, garlic, pepper, onion', rice']
+  [chicken', oil, pepper, onion', rice .* 6]
   6
 
 shake =
@@ -48,10 +47,11 @@ dessert =
 
 chard = ingredient "Swiss Chard (1lb)" 0.9 17 8.2 (Pound 1)
 radicchio = ingredient "Radicchio" 1.1 20.3 6.5 (Pound 1)
+brusselsprouts = ingredient "Brussel sprouts" 0.7 20.3 7.7 (Ounce 8)
 shrimp' = ingredient "Shrimp" 11.8 6.2 138.2 (Pound 1.5)
 shrimp =
   Recipe "Shirmp and Chard"
-  [radicchio, onion, shrimp', oil .* 2]
+  [brusselsprouts, onion, shrimp', oil .* 2]
   6
 
 rice''    = ingredient "White Rice" 2.4 295.8 26.4 (Cup 2)
@@ -63,15 +63,7 @@ cheese = (ingredient "Cheese" 9 1 7 (Gram 28)) .* 8
 
 casserole =
  Recipe "Chicken Enchilada Rice Casserole"
- [rice'', chicken'', sauce, refriedBeans, corn, cheese, beans, onion', lettuce] 6
-
-snack0 =
-  Recipe "Almonds"
-  [ingredient "Almonds" 10.1 3.9 4.3 (Gram 20)] 1
-
-snack1 =
-  Recipe "Apple 1 large"
-  [ingredient "Apple" 0.4 31 0.6 (Gram 223)] 1
+ [rice'', chicken'', sauce, refriedBeans, corn, cheese, beans, onion'] 6
 
 -- Sunday meals
 -- chickenSalad =
@@ -90,15 +82,16 @@ fageYogurt = ingredient "Fage plain yogurt (non fat)" 0 9 23 (Gram 227)
 shrededChicken = ingredient "Shredded poached chicken" 1.5 0 26 (Ounce 4)
 sweetPotato = ingredient "Sweet potato (raw)" 0.1 34.2 2.7 (Ounce 6)
 pb2 = ingredient "PB2" 1 6 5 (Gram 12)
+berries = ingredient "Frozen berries mix" 0 17 1 (Gram 130)
 
 wheyShake = Recipe "Whey+" [wheyplus] 1
 
-pb2yogurt = Recipe "PB2 and Yogurt" [fageYogurt, pb2 .* 4] 1
+pb2yogurt = Recipe "PB2 and Yogurt" [fageYogurt, pb2 .* 4, berries .* 2] 1
 
 chickenAndRice =
   Recipe "Chicken and Rice"
   [ ingredient "Chicken Breast (cubed)" 1.4 0 26.1 (Ounce 4),
-    (ingredient "Cream of Chicken soup" 6 9 2 (Cup (1/2))) .* 2.5,
+    (ingredient "Cream of Chicken soup" 2 9 2 (Cup (1/2))) .* 2.5,
     ingredient "White rice" 1.2 150 13.2 (Cup 1),
     ingredient "Onion (chopped)" 0 16.2 1.5 (Ounce 5.6),
     (ingredient "Veggies" 0 7 2 (Cup (3/4))) .* 4,
@@ -109,17 +102,10 @@ sweetPotatoeAndChicken =
 
 sundayIntake = [chickenAndRice, sweetPotatoeAndChicken, wheyShake, pb2yogurt]
 --
-intake = [lunch, shake, casserole, shrimp]
+pb2' = Recipe "PB2 & Water" [pb2] 1
+intake = [lunch, shake, casserole, shrimp, pb2']
 
 macroBreakdown = [fats intake, carbs intake, protein intake]
 macroBreakdownExpected bw =  [0.2*bw, bw, 1.2*bw]
 calorieIntake = sum $ map calories intake
 calorieIntakeExpected bw = sum [9*bw*0.2, 4*bw, 4*bw*1.2]
-
-toKG :: Double -> Double
-toKG = (*) 0.453592
-
-bmr :: Double -> Double -> Double
-bmr bw bf = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
-
-prnt a = putStr $ show' a
