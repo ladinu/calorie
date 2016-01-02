@@ -35,6 +35,11 @@ instance Macros Food where
   protein (Ingredient _ _ _ p _) = p
   protein (Meal _ servings fs ) = sum (map protein fs) / fromIntegral servings
 
+instance Macros [Food] where
+  fats = sum . map fats
+  carbs = sum . map carbs
+  protein = sum . map protein
+
 
 instance Ops Unit where
    (.*) (Unit m name) n = Unit (m*n) name

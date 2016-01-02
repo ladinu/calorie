@@ -1,7 +1,6 @@
 import Macros
 
 intake =
-  Meal "Weekday" 1
   [
      Ingredient "Whey Protein Powder" 1 3 24 (Unit 1 "Scoop"),
      Meal "Lunch" 1
