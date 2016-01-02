@@ -49,7 +49,7 @@ instance Display Unit where
 instance Display Food where
   display (Ingredient name _ _ _ u) = name ++ " " ++ display u
   display (Meal name servings fs) =
-    "------- " ++ name ++ " [" ++ show servings ++ "] -------\n"
+    "------- " ++ name ++ " [ 1/" ++ show servings ++ " ] -------\n"
     ++ concat (map (++ "\n") (map display fs))
 
 
@@ -66,5 +66,15 @@ toKG = (*) 0.453592
 
 bmr :: Double -> Double -> Double
 bmr bw bf = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
+
+tdee :: Double
+tdee = (bmr 119 0.11) * activityLevelMultipliers !! 3
+
+activityLevelMultipliers = [
+    1.1, -- 1 hour exercise per week
+    1.2, -- 1-3 hours exercise per week
+    1.35, -- 4-6 hours exercise per week
+    1.45 -- 6+ hours exercise per week
+  ]
 
 prnt a = putStr $ display a ++ "\n"
