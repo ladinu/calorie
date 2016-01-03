@@ -33,6 +33,6 @@ intake =
        (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 8,
        Ingredient "Black Beans (drained)" 0.5 22 7 (Unit 130 "g"),
        Ingredient "Onion" 0 11.1 1 (Unit 110 "g")
-     ]
-    --  Ingredient "PB2" 1 6 5 (Unit 12 "g")
+     ],
+     Ingredient "PB2" 1 6 5 (Unit 12 "g")
   ]

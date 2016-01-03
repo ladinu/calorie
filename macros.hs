@@ -66,14 +66,17 @@ calories m = sum [tf (fats m) * 9, tf (carbs m) * 4, tf (protein m) * 4]
 
 macros f = (ceiling (fats f), ceiling (carbs f), ceiling (protein f))
 
+prnt a = putStr $ display a ++ "\n"
+
 toKG :: Double -> Double
 toKG = (*) 0.453592
 
-bmr :: Double -> Double -> Double
-bmr bw bf = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
+
+bmr :: Double
+bmr = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
 
 tdee :: Double
-tdee = (bmr 119 0.11) * activityLevelMultipliers !! 3
+tdee = bmr * activityLevelMultipliers !! 2
 
 activityLevelMultipliers = [
     1.1, -- 1 hour exercise per week
@@ -82,4 +85,8 @@ activityLevelMultipliers = [
     1.45 -- 6+ hours exercise per week
   ]
 
-prnt a = putStr $ display a ++ "\n"
+bw :: Double
+bw = 119.0
+
+bf :: Double
+bf = 0.11
