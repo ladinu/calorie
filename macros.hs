@@ -18,6 +18,12 @@ data Food         =
 class Macros a where
   fats, carbs, protein :: a -> Gram
 
+  calories :: a -> Float
+  calories f = ((fats f) * 9) + ((carbs f) + (protein f)) * 4
+
+  macros :: Integral b => a -> (b, b, b)
+  macros f = (ceiling (fats f), ceiling (carbs f), ceiling (protein f))
+
 class Display a where
   display :: a -> String
 
@@ -58,19 +64,10 @@ instance Display Food where
     ++ concat (map (++ "\n") (map display fs))
 
 
-tf :: (Real a, Fractional b) => a -> b
-tf = realToFrac
-
-calories :: (Macros a, Fractional b) => a -> b
-calories m = sum [tf (fats m) * 9, tf (carbs m) * 4, tf (protein m) * 4]
-
-macros f = (ceiling (fats f), ceiling (carbs f), ceiling (protein f))
-
 prnt a = putStr $ display a ++ "\n"
 
 toKG :: Double -> Double
 toKG = (*) 0.453592
-
 
 bmr :: Double
 bmr = 370.0 + (21.6 * (toKG(bw) * (1.0-bf)))
@@ -86,7 +83,7 @@ activityLevelMultipliers = [
   ]
 
 bw :: Double
-bw = 119.0
+bw = 120.0
 
 bf :: Double
 bf = 0.11
