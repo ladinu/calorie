@@ -18,11 +18,17 @@ data Food         =
 class Macros a where
   fats, carbs, protein :: a -> Gram
 
+  fatCalories, carbCalories, proteinCalories :: a -> Float
+  fatCalories f = fats f * 9
+  carbCalories f = carbs f * 4
+  proteinCalories f = protein f * 4
+
   calories :: a -> Float
-  calories f = ((fats f) * 9) + ((carbs f) + (protein f)) * 4
+  calories f = fatCalories f + carbCalories f + proteinCalories f
 
   macros :: Integral b => a -> (b, b, b)
   macros f = (ceiling (fats f), ceiling (carbs f), ceiling (protein f))
+
 
 class Display a where
   display :: a -> String
