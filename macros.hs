@@ -64,9 +64,14 @@ instance Display Unit where
   display (Unit amount name) = show amount ++ " " ++ name
 
 instance Display Food where
-  display (Ingredient name _ _ _ u) = name ++ " " ++ display u
+  display (Ingredient name f c p u) =
+    name ++ " " ++ display u ++ " " ++ show (macros (Ingredient name f c p u))
   display (Meal name servings fs) =
-    "------- " ++ name ++ " [ 1/" ++ show servings ++ " ] -------\n"
+    "------- "
+     ++ name ++ " [ 1/" ++ show servings ++
+     " | " ++ show (ceiling (calories (Meal name servings fs))) ++
+     " | " ++ show (macros (Meal name servings fs))++
+     " ] -------\n"
     ++ concat (map (++ "\n") (map display fs))
 
 
