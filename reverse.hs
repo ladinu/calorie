@@ -6,26 +6,9 @@ wheyplus = Ingredient "Whey+ Protein Powder" 0 1 22 (Unit 1 "Scoop")
 pb2 = Ingredient "PB2 - Traditional" 1.5 5 5 (Unit 12 "g")
 ricemilk = Ingredient "Rice Milk" 2.5 23 1 (Unit 1 "Cup")
 
-m0 = Meal "Lunch" 1
-     [
-       Ingredient "White Rice (Cooked)" 0.22 28.6 2.4 (Unit 100 "g"),
-       Meal "Chicken stir-fry" 6
-       [
-         Ingredient "Oil" 14 0 0 (Unit 1 "Tbsp"),
-         (Ingredient "Chicken" 1.5 0 26 (Unit 4 "oz")) .* 4,
-         Ingredient "Bell Pepper" 0.6 12.6 2 (Unit 200 "g"),
-         Ingredient "Onion" 0 11.1 1 (Unit 110 "g")
-       ],
-       Meal "Shrimp stir-fry" 6
-       [
-         (Ingredient "Oil" 14 0 0 (Unit 1 "Tbsp")) .* 2,
-         Ingredient "Onion" 0.1 17.2 1.6 (Unit 170 "g"),
-         Ingredient "Brussel Sprouts" 0.7 20.3 7.7 (Unit 8 "oz"),
-         Ingredient "Shrimp" 11.8 6.2 138.7 (Unit 1.5 "lb")
-       ]
-     ]
+shake = Meal "Whey and Ricemilk Shake" 1 [ricemilk, wheyplus]
 
-m1 =
+m0 =
   Meal "Chicken Enchilada Rice Casserolse" 6
   [
     (Ingredient "White Rice (Raw)" 2.4 295.8 26.4 (Unit 2 "Cup")),
@@ -38,7 +21,7 @@ m1 =
     Ingredient "Onion" 0 11.1 1 (Unit 110 "g")
   ]
 
-m2 =
+m1 =
   Meal "Baked Banana Walnut Rasin Oatmeal" 6
   [
     Ingredient "Low-Fat Milk (1% fat)" 2.4 12.2 8.5 (Unit 1 "cup"),
@@ -56,7 +39,7 @@ m2 =
     (Ingredient "Salt" 0 0 0 (Unit 0.25 "tsp"))
   ]
 
-m3 =
+m2 =
   Meal "Mexican beef and rice casserole" 6
   [
     (Ingredient "Ground beef, (93:7)" 8 0 24 (Unit 4 "oz")) .* 4,
@@ -71,5 +54,4 @@ m3 =
     (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")) .* 2
   ]
 
-
-intake =[ bananaMedium .* 1, wheyplus, ricemilk, m1, m2, m3, appleMedium, pb2]
+intake =[ bananaMedium .* 1, shake, m0, m1, m2, appleMedium]
