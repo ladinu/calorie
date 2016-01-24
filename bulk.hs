@@ -8,6 +8,8 @@ bananaMedium = Ingredient "Banana (medium - 6.5oz w/ skin)"
 appleMedium = Ingredient "Apple (medium - 70z w/ refuse 3\" dia)"
   0.3 25 0.5 (Unit 1 "medium")
 
+eggLarge = Ingredient "Egg" 5 0 6 (Unit 1 "large")
+
 pb2 = Ingredient "PB2 - Traditional" 1.5 5 5 (Unit 12 "g")
 
 m0 =
@@ -32,15 +34,13 @@ m1 =
   Meal "Baked Banana Walnut Rasin Oatmeal" 6
   [
     Ingredient "Low-Fat Milk (1% fat)" 2.4 12.2 8.5 (Unit 1 "cup"),
-    (Ingredient "Egg" 5 0 6 (Unit 1 "large")) .* 1,
+    eggLarge,
     (Ingredient "Walnut" 19 4 4.3 (Unit 30 "g")),
     pb2 .* 3,
     (Ingredient "Cocoa powder (Hershey's)" 0.5 3 1 (Unit 5 "g")),
-
     bananaMedium .* 3,
     (Ingredient "Quaker Oats - Old Fashioned" 3 27 5 (Unit 40 "g")) .* 3.5,
     (Ingredient "Rasins" 0 31 1 (Unit 40 "g")) .* 1.5,
-
     (Ingredient "Baking powder" 0 0 0 (Unit 0.5 "tsp")),
     (Ingredient "Baking soda" 0 0 0 (Unit 0.5 "tsp")),
     (Ingredient "Salt" 0 0 0 (Unit 0.25 "tsp"))
@@ -62,9 +62,8 @@ m2 =
 m3 =
   Meal "Mexican beef and rice casserole" 6
   [
-    (Ingredient "Ground beef, (93:7)" 8 0 24 (Unit 4 "oz")) .* 4,
+    (Ingredient "Ground beef, (96:4)" 4.5 0 24 (Unit 4 "oz")) .* 4,
     (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 8,
-
     (Ingredient "White Rice, Raw" 2.4 295.8 26.4 (Unit 2 "Cup")) ./ 2,
     Ingredient "Spinach, raw" 1.3 11.9 9.4 (Unit 11.5 "oz"),
     (Ingredient "Corn kernels" 0 21 2 (Unit 90 "g")) .* 2,
@@ -73,4 +72,46 @@ m3 =
     (Ingredient "Fire roasted tomato" 0 6 1 (Unit 123 "g")) .* 3.5,
     (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")) .* 2
   ]
+
+m4 = Meal "Apple Coffee Cake" 8
+  [
+    (Ingredient "Apple Sauce (Unsweetened)" 0 18 0 (Unit 122 "g")),
+    (Ingredient "Brown Sugar, lightly packed (3/4 cup)" 0 150 0 (Unit 150 "g")),
+    eggLarge,
+    (Ingredient "All Purpose White flour" 1.2 95.4 12.9 (Unit 4.4 "oz")),
+    (Ingredient "Baking soda" 0 0 0 (Unit 0.5 "tsp")),
+    (Ingredient "Cinnamon" 0 0 0 (Unit 0.5 "tsp")),
+    (Ingredient "Non-fat Greek Yogurt (fage)" 0 9 23 (Unit 227 "g")) ./ 2,
+    (Ingredient "Vanilla extract" 0 0 0 (Unit 0.5 "tsp")),
+    (Ingredient "Diced Apple" 0.3 20.7 0.4 (Unit 150 "g")),
+    Meal "Topping" 1
+    [
+      (Ingredient "Brown Sugar" 0 12.7 0 (Unit 13 "g")) .* 3,
+      (Ingredient "White flour" 0.3 21.6 2.9 (Unit 1 "oz")),
+      (Ingredient "Butter" 14 0 0 (Unit 1 "tbsp"))
+    ]
+  ]
+
+m5 = Meal "Sweet Potato Breakfast Burrito" 8
+  [
+    (Ingredient "Olive oil" 0 14 0 (Unit 14 "g")),
+    (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")) .* 2.5,
+    (Ingredient "Garlic" 0 1 0 (Unit 1 "clove(s)")) .* 3,
+    (Ingredient "Sweet Potato, cubed" 0.1 57 4.5 (Unit 10 "oz")),
+    (Ingredient "Zucchini, diced" 0.4 4.3 1.5 (Unit 4.4 "oz")),
+    (Ingredient "Chili Powder" 0 0 0 (Unit 0.5 "tsp")),
+    (Ingredient "Cumin" 0 0 0 (Unit 0.25 "tsp")),
+    (Ingredient "Salt" 0 0 0 (Unit 0.25 "tsp")),
+    (Ingredient "Ground pepper" 0 0 0 (Unit 0.25 "tsp")),
+    (Ingredient "Tortillas" 4.5 23 4 (Unit 1 "serving")) .* 8,
+    Meal "Scrambled Eggs" 1
+    [
+      eggLarge .* 8,
+      (Ingredient "Spinach, finely chopped" 0.2 2.2 1.7 (Unit 2.2 "oz")),
+      (Ingredient "Salt" 0 0 0 (Unit 0.25 "tsp")),
+      (Ingredient "Ground pepper" 0 0 0 (Unit 0.25 "tsp")),
+      (Ingredient "Cooking spray" 0 0 0 (Unit 1 "spray"))
+    ]
+  ]
+
 intake = [wheyplus, m0, m1, m2, bananaMedium, appleMedium]
