@@ -33,7 +33,7 @@ m0 =
 m1 =
   Meal "Baked Banana Walnut Rasin Oatmeal" 6
   [
-    Ingredient "Low-Fat Milk (1% fat)" 2.4 12.2 8.5 (Unit 1 "cup"),
+    Ingredient "Almon Milk, unsweetened" 2.4 8 1 (Unit 1 "cup"),
     eggLarge,
     (Ingredient "Walnut" 19 4 4.3 (Unit 30 "g")),
     pb2 .* 3,
