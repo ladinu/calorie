@@ -54,7 +54,7 @@ m2 =
     (Ingredient "Enchilada Sauce" 0 4 0 (Unit 0.25 "Cup")) .* 13,
     (Ingredient "Refried Beans" 0 16 6 (Unit 0.5 "Cup")) .* 3.5,
     Ingredient "Corn kernels" 0 18 0 (Unit 90 "g"),
-    (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 8,
+    (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 4,
     Ingredient "Black Beans (drained)" 0.5 22 7 (Unit 130 "g"),
     Ingredient "Onion" 0 11.1 1 (Unit 110 "g")
   ]
@@ -63,7 +63,7 @@ m3 =
   Meal "Mexican beef and rice casserole" 6
   [
     (Ingredient "Ground beef, (96:4)" 4.5 0 24 (Unit 4 "oz")) .* 4,
-    (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 8,
+    (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 4,
     (Ingredient "White Rice, Raw" 2.4 295.8 26.4 (Unit 2 "Cup")) ./ 2,
     Ingredient "Spinach, raw" 1.3 11.9 9.4 (Unit 11.5 "oz"),
     (Ingredient "Corn kernels" 0 21 2 (Unit 90 "g")) .* 2,
@@ -114,4 +114,17 @@ m5 = Meal "Sweet Potato Breakfast Burrito" 8
     ]
   ]
 
-intake = [wheyplus, m0, m1, m2, bananaMedium, appleMedium]
+m6 = Meal "Butternut Squash Pasta" 6
+  [
+    (Ingredient "Butter" 12.2 0 0 (Unit 15 "g")) .* 2,
+    (Ingredient "Onion" 0.2 15 1.8 (Unit 160 "g")),
+    (Ingredient "Garlic" 0.05 1 0.2 (Unit 3 "clove")),
+    (Ingredient "Butternut Squash (cubed)" 0.1 16.4 1.4 (Unit 140 "g")) .* 3,
+    (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")),
+    (Ingredient "Thyme" 0 0 0 (Unit 1 "tbsp")) .* 1.5,
+    (Ingredient "Sage" 0.3 1.2 0.2 (Unit 2 "g")) .* 1.5,
+    (Ingredient "Milk 2%" 5 12.3 8.1 (Unit 1 "cup")),
+    (Ingredient "Whole Grain Rotini" 1.5 41 7 (Unit 2 "oz")) .* 8
+  ]
+
+intake = [wheyplus, m0, m1, m2, m3, m4, m5, m6, bananaMedium, appleMedium]

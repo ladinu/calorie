@@ -46,10 +46,10 @@ m2 =
     (Ingredient "Ground beef, (96:4)" 4.5 0 24 (Unit 4 "oz")) .* 4,
     (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 4,
     (Ingredient "White Rice, Raw" 2.4 295.8 26.4 (Unit 2 "Cup")) ./ 2,
-    Ingredient "Spinach, raw" 1.3 11.9 9.4 (Unit 11.5 "oz"),
+    (Ingredient "Spinach, raw" 1.3 11.9 9.4 (Unit 11.5 "oz")),
     (Ingredient "Corn kernels" 0 21 2 (Unit 90 "g")) .* 2,
     (Ingredient "Salsa" 0 2 0 (Unit 30 "ml")) .* 4,
-    Ingredient "Onion" 0 11.1 1 (Unit 110 "g"),
+    (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")),
     (Ingredient "Fire roasted tomato" 0 6 1 (Unit 123 "g")) .* 3.5,
     (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")) .* 2
   ]
