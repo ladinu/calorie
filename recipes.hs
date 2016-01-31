@@ -1,8 +1,8 @@
 module Recipes where
-  
+
 import Macros
 
-m0 =
+cheesyChickenBroccoli =
   Meal "Cheesy Chicken Broccoli and Rice Casserole" 2
   [
     (Ingredient "Olive Oil" 14 0 0 (Unit 14 "g")) ./ 2,
@@ -20,7 +20,7 @@ m0 =
     (Ingredient "Carrots, raw" 0.2 9.6 0.9 (Unit 100 "g"))
   ]
 
-m1 =
+bakedBananaOatmeal =
   Meal "Baked Banana Walnut Rasin Oatmeal" 6
   [
     (Ingredient "Almon Milk, unsweetened" 2.4 8 1 (Unit 1 "cup")),
@@ -36,11 +36,11 @@ m1 =
     (Ingredient "Salt" 0 0 0 (Unit 0.25 "tsp"))
   ]
 
-m2 =
-  Meal "Chicken Enchilada Rice Casserolse" 6
+chickenEnchiladaCasserole =
+  Meal "Chicken Enchilada Rice Casserole" 6
   [
     (Ingredient "White Rice (Raw)" 2.4 295.8 26.4 (Unit 2 "Cup")),
-    (Ingredient "Chicken Breast (Raw)" 11.2 0 209.5 (Unit 2 "lb")),
+    (Ingredient "Chicken Breast (Raw)" 11.2 0 209.5 (Unit 2 "lb")) ./ 2,
     (Ingredient "Enchilada Sauce" 0 4 0 (Unit 0.25 "Cup")) .* 13,
     (Ingredient "Refried Beans" 0 16 6 (Unit 0.5 "Cup")) .* 3.5,
     (Ingredient "Corn kernels" 0 18 0 (Unit 90 "g")),
@@ -49,21 +49,22 @@ m2 =
     (Ingredient "Onion" 0 11.1 1 (Unit 110 "g"))
   ]
 
-m3 =
+mexicanBeefAndRiceCasserole =
   Meal "Mexican beef and rice casserole" 6
   [
-    (Ingredient "Ground beef, (96:4)" 4.5 0 24 (Unit 4 "oz")) .* 4,
+    (Ingredient "Ground beef, (93:7)" 8 0 24 (Unit 4 "oz")) .* 4,
     (Ingredient "Cheese" 9 1 7 (Unit 28 "g")) .* 4,
     (Ingredient "White Rice, Raw" 2.4 295.8 26.4 (Unit 2 "Cup")) ./ 2,
     (Ingredient "Spinach, raw" 1.3 11.9 9.4 (Unit 11.5 "oz")),
     (Ingredient "Corn kernels" 0 21 2 (Unit 90 "g")) .* 2,
     (Ingredient "Salsa" 0 2 0 (Unit 30 "ml")) .* 4,
-    Ingredient "Onion" 0 11.1 1 (Unit 110 "g"),
+    (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")),
     (Ingredient "Fire roasted tomato" 0 6 1 (Unit 123 "g")) .* 3.5,
     (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")) .* 2
   ]
 
-m4 = Meal "Apple Coffee Cake" 8
+appleCoffeeCake =
+  Meal "Apple Coffee Cake" 8
   [
     (Ingredient "Apple Sauce (Unsweetened)" 0 18 0 (Unit 122 "g")),
     (Ingredient "Brown Sugar, lightly packed (3/4 cup)" 0 150 0 (Unit 150 "g")),
@@ -78,11 +79,12 @@ m4 = Meal "Apple Coffee Cake" 8
     [
       (Ingredient "Brown Sugar" 0 12.7 0 (Unit 13 "g")) .* 3,
       (Ingredient "White flour" 0.3 21.6 2.9 (Unit 1 "oz")),
-      (Ingredient "Butter" 14 0 0 (Unit 1 "tbsp"))
+      (Ingredient "Butter" 14 0 0 (Unit 1 "tbsp")) .* 2
     ]
   ]
 
-m5 = Meal "Sweet Potato Breakfast Burrito" 8
+sweetPotatoBurrito =
+  Meal "Sweet Potato Breakfast Burrito" 8
   [
     (Ingredient "Olive oil" 0 14 0 (Unit 14 "g")),
     (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")) .* 2.5,
@@ -104,7 +106,8 @@ m5 = Meal "Sweet Potato Breakfast Burrito" 8
     ]
   ]
 
-m6 = Meal "Butternut Squash Pasta Sauce" 6
+pastaSauceWith food =
+  Meal "Butternut Squash Pasta Sauce" servings
   [
     (Ingredient "Butter" 12.2 0 0 (Unit 15 "g")) .* 2,
     (Ingredient "Onion" 0.2 15 1.8 (Unit 160 "g")),
@@ -113,5 +116,8 @@ m6 = Meal "Butternut Squash Pasta Sauce" 6
     (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")),
     (Ingredient "Thyme" 0 0 0 (Unit 1 "tbsp")) .* 1.5,
     (Ingredient "Sage" 0.3 1.2 0.2 (Unit 2 "g")) .* 1.5,
-    (Ingredient "Milk 2%" 5 12.3 8.1 (Unit 1 "cup"))
+    (Ingredient "Milk 2%" 5 12.3 8.1 (Unit 1 "cup")),
+    food .* (fromIntegral servings)
   ]
+  where
+    servings = 6

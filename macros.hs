@@ -59,6 +59,7 @@ instance Ops Unit where
 instance Ops Food where
   (.*) (Ingredient name f c p amount) n =
     Ingredient name (f * n) (c * n) (p * n) (amount .* n)
+  (.*) (Meal name servings foods) n = Meal name servings (map (.* n) foods)
 
 instance Display Unit where
   display (Unit amount name) = show amount ++ " " ++ name
