@@ -2,7 +2,7 @@ import Macros
 import Recipes
 
 
-target = tdee + (0.05 * tdee)
+target = tdee + (0.10 * tdee)
 
 intake = [
   Meal "Breakfast" 1 [sweetPotatoBurrito],

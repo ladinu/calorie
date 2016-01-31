@@ -76,6 +76,12 @@ instance Display Food where
     ++ concat (map (++ "\n") (map display fs))
 
 
+ingredients :: [Food] -> String
+ingredients [] = ""
+ingredients ((Ingredient name _ _ _ (Unit amount unit)):fs) =
+  name ++ " " ++ show amount ++ " " ++ unit ++ "\n" ++ ingredients fs
+ingredients ((Meal _ _ foods):fs) = ingredients foods ++ ingredients fs
+
 prnt a = putStr $ display a ++ "\n"
 
 toKG :: Double -> Double

@@ -87,15 +87,15 @@ sweetPotatoBurrito =
   Meal "Sweet Potato Breakfast Burrito" 8
   [
     (Ingredient "Olive oil" 0 14 0 (Unit 14 "g")),
-    (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")) .* 2.5,
+    (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")) .* 2,
     (Ingredient "Garlic" 0 1 0 (Unit 1 "clove(s)")) .* 3,
     (Ingredient "Sweet Potato, cubed" 0.1 57 4.5 (Unit 10 "oz")),
-    (Ingredient "Zucchini, diced" 0.4 4.3 1.5 (Unit 4.4 "oz")),
+    (Ingredient "Zucchini, diced" 0.4 4.3 1.5 (Unit 4.4 "oz")) .* 1.5,
     (Ingredient "Chili Powder" 0 0 0 (Unit 0.5 "tsp")),
     (Ingredient "Cumin" 0 0 0 (Unit 0.25 "tsp")),
     (Ingredient "Salt" 0 0 0 (Unit 0.25 "tsp")),
     (Ingredient "Ground pepper" 0 0 0 (Unit 0.25 "tsp")),
-    (Ingredient "Tortillas" 4.5 23 4 (Unit 1 "serving")) .* 8,
+    (Ingredient "Tortillas" 4.5 30 4 (Unit 1 "serving")) .* 8,
     Meal "Scrambled Eggs" 1
     [
       (Ingredient "Egg" 5 0 6 (Unit 1 "large")) .* 8,
@@ -116,7 +116,7 @@ pastaSauceWith food =
     (Ingredient "Swanson's Chicken Broth" 0.5 1 1 (Unit 1 "cup")),
     (Ingredient "Thyme" 0 0 0 (Unit 1 "tbsp")) .* 1.5,
     (Ingredient "Sage" 0.3 1.2 0.2 (Unit 2 "g")) .* 1.5,
-    (Ingredient "Milk 2%" 5 12.3 8.1 (Unit 1 "cup")),
+    (Ingredient "Milk 1%" 2.5 12.3 8.1 (Unit 1 "cup")),
     food .* (fromIntegral servings)
   ]
   where
