@@ -29,6 +29,9 @@ class Macros a where
   macros :: Integral b => a -> (b, b, b)
   macros f = (ceiling (fats f), ceiling (carbs f), ceiling (protein f))
 
+  i :: a -> String
+  i f = show (calories f) ++ " " ++ show (macros f)
+
 
 class Display a where
   display :: a -> String
@@ -83,6 +86,7 @@ ingredients ((Ingredient name _ _ _ (Unit amount unit)):fs) =
 ingredients ((Meal _ _ foods):fs) = ingredients foods ++ ingredients fs
 
 prnt a = putStr $ display a ++ "\n"
+fi a = fromIntegral a
 
 toKG :: Double -> Double
 toKG = (*) 0.453592
@@ -99,7 +103,6 @@ activityLevelMultipliers = [
     1.35, -- 4-6 hours exercise per week
     1.45 -- 6+ hours exercise per week
   ]
-
 bw :: Double
 bw = 120.0
 
