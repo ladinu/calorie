@@ -87,7 +87,7 @@ appleCoffeeCake =
 sweetPotatoBurrito =
   Meal "Sweet Potato Breakfast Burrito" 8
   [
-    (Ingredient "Olive oil" 0 14 0 (Unit 14 "g")),
+    (Ingredient "Olive oil" 14 0 0 (Unit 14 "g")),
     (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")) .* 2,
     (Ingredient "Garlic" 0 1 0 (Unit 1 "clove(s)")) .* 3,
     (Ingredient "Sweet Potato, cubed" 0.1 57 4.5 (Unit 10 "oz")),

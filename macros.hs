@@ -2,6 +2,8 @@
 
 module Macros where
 
+import Data.List
+
 type NumServings  = Int
 type Gram         = Float
 
@@ -36,11 +38,20 @@ class Macros a where
 class Display a where
   display :: a -> String
 
+class ToJoules a where
+  toJoules :: a -> String
+
 class Ops a where
   (.*), (./) :: a -> Float -> a
   (./) m 0 = error "Cannot divide by zero"
   (./) m n = m .* (1/n)
 
+instance ToJoules Food where
+  toJoules (Ingredient n f c p (Unit a u)) = "Ingredient \"" ++ n ++ "\"" ++ " Macros " ++ show f ++ " " ++ show c ++ " " ++ show p ++ " Amount " ++ show a ++ " \"" ++ u ++ "\""
+  toJoules (Meal n s fs) = "Meal " ++ "\"" ++ n ++ "\" " ++ show s ++ " " ++ (toJoules fs)
+
+instance ToJoules [Food] where
+  toJoules fs = intercalate ", " (map toJoules fs)
 
 instance Macros Food where
   fats    (Ingredient _ f _ _ _) = f
@@ -104,7 +115,12 @@ activityLevelMultipliers = [
     1.45 -- 6+ hours exercise per week
   ]
 bw :: Double
-bw = 120.0
+bw = 130
 
 bf :: Double
-bf = 0.11
+bf = 0.17
+
+profile a = "Calories: " ++ show (calories a) ++ "\n"
+  ++ "fats: " ++ show (fats a) ++ "\n"
+  ++ "carbs: " ++ show (carbs a) ++ "\n"
+  ++ "protein: " ++ show (protein a) ++ "\n"
