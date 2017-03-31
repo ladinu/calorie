@@ -115,10 +115,13 @@ activityLevelMultipliers = [
     1.45 -- 6+ hours exercise per week
   ]
 bw :: Double
-bw = 130
+bw = 125
 
 bf :: Double
-bf = 0.17
+bf = 0.20
+
+target :: Double
+target = tdee - (0.25 * tdee)
 
 profile a = "Calories: " ++ show (calories a) ++ "\n"
   ++ "fats: " ++ show (fats a) ++ "\n"

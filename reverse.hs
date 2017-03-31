@@ -60,7 +60,7 @@ m2 =
 
 m3 = Meal "Sweet Potato Breakfast Burrito" 8
   [
-    (Ingredient "Olive oil" 0 14 0 (Unit 14 "g")),
+    (Ingredient "Olive oil" 14 0 0 (Unit 14 "g")),
     (Ingredient "Onion" 0 11.1 1 (Unit 110 "g")) .* 2.5,
     (Ingredient "Garlic" 0 1 0 (Unit 1 "clove(s)")) .* 3,
     (Ingredient "Sweet Potato, cubed" 0.1 57 4.5 (Unit 10 "oz")),
@@ -149,7 +149,7 @@ hodi =    Meal "Curry" 1
 chickenAndRice =
   Meal "Chicken and Rice" 6
   [
-    (Ingredient "White Rice (Raw)" 2.4 295.8 26.4 (Unit 1 "Cup")) .* 3,
+    (Ingredient "White Rice (Raw)" 1.2 147.9 13.2 (Unit 6.5 "oz")) .* 3,
     Ingredient "Chicken thigh" 17.7 0 89.1 (Unit 1 "lb"),
     Ingredient "Adobo sauce" 0.5 2 1 (Unit 7 "oz") .* 1,
     Ingredient "Onion" 0.1 16.2 1.5 (Unit 5.6 "oz") .* 1,
