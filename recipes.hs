@@ -134,3 +134,49 @@ lunchBurrito =
   ]
   where
     servings = 6
+
+chickenSalad = Meal "Chicken salad" 6
+  [
+    Ingredient "Chicken breast, poached" 5.6 0 104.7 (Unit 1 "lb") .* 2,
+    Ingredient "Celery" 0 0 0 (Unit 0.5 "cup"),
+    Ingredient "Onion" 0.1 15.2 1.4 (Unit 150 "g"),
+    Ingredient "Raisins" 0.4 63 2.5 (Unit 80 "g"),
+    Ingredient "Pita" 2 34 8 (Unit 1 "count") .* 6,
+    Ingredient "Almonds" 35.4 13.8 14.9 (Unit 70 "g"),
+    Ingredient "Greek Yogurt" 0 9 23 (Unit 227 "g") .* 1.3
+  ]
+
+overNightOats = Meal "Overnight oats" 1
+  [
+      ((Ingredient "Oats, old fashioned" 3 27 5 (Unit 40 "g")) .* 2) ./ 3,
+      Ingredient "Greek yogurt" 0 9 23 (Unit 227 "g") ./ 4,
+      Ingredient "Low fat Milk" 2.4 12.2 8.5 (Unit 8 "oz") ./ 4,
+      Ingredient "Almond butter" 9.4 3.4 2.4 (Unit 17 "g"),
+      Ingredient "Honey" 0 25 0.1 (Unit 25 "g"),
+      Ingredient "Chia seed" 9 10 6 (Unit 26 "g") ./ 2
+  ]
+
+tunaCasserole =
+  Meal "Tuna casserole" 4
+  [
+    Ingredient "Tuna" 0.5 0 13 (Unit 2 "oz") .* 4.5, -- 12oz can
+    Ingredient "Egg noodle" 3 40 8 (Unit 56 "g") .* 6, -- 2 cups
+    Ingredient "Peas" 0 12 5 (Unit 90 "g") .* 2.5,
+    Ingredient "Cream of mushrooms" 6 8 1 (Unit 1.5 "cup") .* 2.5,
+    Ingredient "Whole milk" 2.4 12 8 (Unit 244 "g"),
+    Ingredient "Cheddar cheese" 10 1 8 (Unit 1 "oz") .* 3
+  ]
+
+turkeyBurito =
+  Meal "Beef Avocado Burrito" servings
+  [
+    (Ingredient "Soft Tortilla" 4 37 5 (Unit 1 "serving")) .* (fi servings),
+    (Ingredient "Ground turkey, (93:7)" 8 0 22 (Unit 4 "oz")) .* 4,
+    (Ingredient "Egg" 5 0 6 (Unit 1 "large")) .* (fi (servings * 2)),
+    (Ingredient "Sweet potato" 0.1 27 2.1 (Unit 133 "grams")) .* 4,
+    Ingredient "Oil" 15 0 0 (Unit 15 "g"),
+    Ingredient "Onion" 0.1 16.2 1.5 (Unit 5.6 "oz"),
+    (Ingredient "Avocado" 3.1 1.7 0.4 (Unit 20 "g")) .* (fi servings)
+  ]
+  where
+    servings = 6

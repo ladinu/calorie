@@ -115,7 +115,7 @@ activityLevelMultipliers = [
     1.45 -- 6+ hours exercise per week
   ]
 bw :: Double
-bw = 125
+bw = 140
 
 bf :: Double
 bf = 0.20
