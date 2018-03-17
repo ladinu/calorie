@@ -28,7 +28,7 @@ chickenThigh = Meal "Oven roasted thigh" 6
 
 intake =
   [
-    wheyplus .* 1,
+    Ingredient "Whey+ Protein Powder" 0 1 22 (Unit 1 "Scoop"),
     Ingredient "White Rice (Cooked)" 1.2 112 10.8 (Unit 400 "g"),
     Ingredient "Apple large" 0.4 31 0.6 (Unit 1 "large"),
     Ingredient "Banana (large)" 0.4 31 1.5  (Unit 136 "g"),
