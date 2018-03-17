@@ -1,5 +1,4 @@
 import Macros
-import Recipes
 
 parippu green = Meal "Parippu" 3
   [
