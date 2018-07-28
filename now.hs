@@ -33,17 +33,24 @@ tunaCasserole =
     --Ingredient "Cheddar cheese" 10 2 6 (Unit 1 "oz") .* 0
   ]
 
+stirFry =
+  Meal "Rice and beef" 1
+  [
+    Ingredient "Broccolini" 0 6 3 (Unit 85 "g"),
+    Ingredient "Beef" 8 0 23.7 (Unit 4 "oz")
+  ]
+
 intake =
   [
-    Ingredient "Whey+ Protein Powder" 0 1 22 (Unit 1 "Scoop"),
-    Ingredient "Milk (whole 3.25%)" 8 12 8 (Unit 244 "g"),
-    Ingredient "Greek Yogurt" 0 9 23 (Unit 227 "g"),
-    Ingredient "Sugar" 0 20 0 (Unit 20 "g"),
-    Ingredient "White Rice (Cooked)" 1.2 112 10.8 (Unit 400 "g"),
-    Ingredient "Apple large" 0.4 31 0.6 (Unit 1 "large"),
-    --Ingredient "Banana (large)" 0.4 31 1.5  (Unit 136 "g"),
-    Ingredient "Large egg" 5 0.6 6  (Unit 56 "g") .* 2,
-    chickenThigh,
-    tunaCasserole,
+    --Ingredient "Whey+ Protein Powder" 0 1 22 (Unit 1 "Scoop"),
+    --Ingredient "Milk (whole 2%)" 5 12 8 (Unit 244 "g"),
+    --Ingredient "Sugar" 0 20 0 (Unit 20 "g"),
+    (Ingredient "Tuna" 0.5 0 11 (Unit 2 "oz") .* 4.5) ./ 6, -- 12oz can
+    Ingredient "Tilapia" 2.2 0 26.1 (Unit 130 "g"),
+    Ingredient "White Rice (Cooked)" 1 99 9.4 (Unit 350 "g"),
+    Ingredient "Cooked rice" 0.4 45 4.3 (Unit 160 "g"),
+    Ingredient "Kiwi" 0.4 10 0.8  (Unit 136 "g") .* 2,
+    Ingredient "Large egg" 5 0 6  (Unit 1 "tbd") .* 2,
+    Ingredient "Top sirloin steak" 230 0 368 (Unit 4 "lb") ./ 6,
     (parippu chard)
   ]
